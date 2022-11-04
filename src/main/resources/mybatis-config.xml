@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+    <!--mapper에서 매칭할 parmeter Type 별칭 설정-->
+    <typeAliases>
+        <typeAlias type="com.tbcom.login.service.impl.UserVO" alias="user"/>
+    </typeAliases>
+
+
+    <environments default="development">
+
+        <!-- environment id를 구분하여 연결할 DB를 여려개 구성할 수 도 있음 -->
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@211.59.68.82:58821:NCMS"/>
+                <property name="username" value="GBOSANG_DEV"/>
+                <property name="password" value="ncms2021"/>
+            </dataSource>
+        </environment>
+
+
+<!--        <environment id="development">-->
+<!--            <transactionManager type="JDBC"/>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>-->
+<!--                <property name="url" value="jdbc:oracle:thin:@211.59.68.82:58821:NCMS"/>-->
+<!--                <property name="username" value="GBOSANG_DEV"/>-->
+<!--                <property name="password" value="ncms2021"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+    </environments>
+
+    <mappers>
+        <mapper resource="/mappers/UserMapper.xml"/>
+    </mappers>
+</configuration>
